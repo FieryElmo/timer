@@ -1,0 +1,434 @@
+<html>
+  <head>
+    <title>timer</title>
+  </head>
+  <style>
+    h1 {
+      width: 100%;
+      height: 40%;
+      font-size: 100px;
+      margin: 0;
+      text-align: center;
+      line-height: 350px;
+      user-select: none;
+    }
+    button {
+      width: 45%;
+      height: 20%;
+      font-size: 45px;
+      border-radius: 100px;
+      margin: 15px;
+      bottom: 0;
+      transition: 0.15s;
+      opacity: 1;
+      border: none;
+      background-color: lightgrey;
+    }
+    #stopwatch {
+      background-color: lightgrey;
+    }
+    #timer {
+      background-color: grey;
+      margin-left: 40px;
+    }
+    button:hover {
+      cursor: pointer;
+      box-shadow: 3px 3px 5px black;
+      opacity: .75;
+    }
+    #timeTxt, #timerTxt {
+      display: none;
+      width: 98%;
+      height: 35%;
+      font-size: 150px;
+      margin: 1%;
+    }
+    #startT {
+      display: inline-block;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      margin-left: 11%;
+      margin-right: 12%;
+      background-color: green;
+      font-size: 50px;
+    }
+    #stopT {
+      display: inline-block;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      margin-right: 10%;
+      margin-left: 12%;
+      background-color: red;
+      font-size: 50px;
+    }
+    #resetT {
+      display: inline-block;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      background-color: yellow;
+      font-size: 50px;
+    }
+    #startS {
+      display: none;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      margin-left: 11%;
+      margin-right: 12%;
+      background-color: green;
+      font-size: 50px;
+    }
+    #stopS {
+      display: none;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      margin-right: 10%;
+      margin-left: 12%;
+      background-color: red;
+      font-size: 50px;
+    }
+    #resetS {
+      display: none;
+      width: 16%;
+      height: 30%;
+      border-radius: 100%;
+      background-color: yellow;
+      font-size: 50px;
+    }
+    body {
+      margin: none;
+    }
+    select {
+      display: inline-block;
+      width: 33%;
+      height: 40%;
+      font-size: 100px;
+      padding: 5% 10%;
+    }
+    div {
+      display: block;
+    }
+  </style>
+  <body>
+    <h1 id=timerTxt>0</h1>
+    <h1 id="timeTxt">0</h1>
+    <div>
+      <select id=hours>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+      </select>
+      <select id=minutes>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option selected="true">10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+        <option>32</option>
+        <option>33</option>
+        <option>34</option>
+        <option>35</option>
+        <option>36</option>
+        <option>37</option>
+        <option>38</option>
+        <option>39</option>
+        <option>40</option>
+        <option>41</option>
+        <option>42</option>
+        <option>43</option>
+        <option>44</option>
+        <option>45</option>
+        <option>46</option>
+        <option>47</option>
+        <option>48</option>
+        <option>49</option>
+        <option>50</option>
+        <option>51</option>
+        <option>52</option>
+        <option>53</option>
+        <option>54</option>
+        <option>55</option>
+        <option>56</option>
+        <option>57</option>
+        <option>58</option>
+        <option>59</option>
+      </select>
+      <select id=seconds>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+        <option>32</option>
+        <option>33</option>
+        <option>34</option>
+        <option>35</option>
+        <option>36</option>
+        <option>37</option>
+        <option>38</option>
+        <option>39</option>
+        <option>40</option>
+        <option>41</option>
+        <option>42</option>
+        <option>43</option>
+        <option>44</option>
+        <option>45</option>
+        <option>46</option>
+        <option>47</option>
+        <option>48</option>
+        <option>49</option>
+        <option>50</option>
+        <option>51</option>
+        <option>52</option>
+        <option>53</option>
+        <option>54</option>
+        <option>55</option>
+        <option>56</option>
+        <option>57</option>
+        <option>58</option>
+        <option>59</option>
+      </select>
+    </div>
+    <button id=startT>Start</button>
+    <button id=resetT>Reset</button>
+    <button id=stopT>Stop</button>
+    <button id=startS>Start</button>
+    <button id=resetS>Reset</button>
+    <button id=stopS>Stop</button>
+    <button id=timer>Timer</button>
+    <button id=stopwatch>Stopwatch</button>
+    <script>
+      const body = document.querySelector('body')
+      const timeTxt = document.querySelector('#timeTxt')
+      const timerTxt = document.querySelector('#timerTxt')
+      const start = document.querySelector('#start')
+      const stop = document.querySelector('#stop')
+      const selectH = document.querySelector('#hours')
+      const selectM = document.querySelector('#minutes')
+      const selectS = document.querySelector('#seconds')
+      const div = document.querySelector('div')
+      const title = document.querySelector('title')
+      var sound = new Audio('alarm.mp3')
+      
+
+      const timer = document.querySelector('#timer')
+      const stopwatch = document.querySelector('#stopwatch')
+      
+      timer.addEventListener('click', () => {
+        timer.style.backgroundColor = 'grey'
+        stopwatch.style.backgroundColor = 'lightgrey'
+        startS.style.display = 'none'
+        stopS.style.display = 'none'
+        timeTxt.style.display = 'none'
+        timerTxt.style.display = 'none'
+        startT.style.display = 'inline-block'
+        stopT.style.display = 'inline-block'
+        resetS.style.display = 'none'
+        resetT.style.display = 'inline-block'
+        selectH.style.display = 'inline-block'
+        selectM.style.display = 'inline-block'
+        selectS.style.display = 'inline-block'
+        div.style.display = 'block'
+        title.innerText = 'timer'
+      })
+      
+      stopwatch.addEventListener('click', () => {
+        timer.style.backgroundColor = 'lightgrey'
+        stopwatch.style.backgroundColor = 'grey'
+        startT.style.display = 'none'
+        stopT.style.display = 'none'
+        startS.style.display = 'inline-block'
+        stopS.style.display = 'inline-block'
+        timeTxt.style.display = 'inline-block'
+        timerTxt.style.display = 'none'
+        resetS.style.display = 'inline-block'
+        resetT.style.display = 'none'
+        selectH.style.display = 'none'
+        selectM.style.display = 'none'
+        selectS.style.display = 'none'
+        div.style.display = 'none'
+        title.innerText = 'stopwatch'
+        timeTxt.innerText = stopValueH + ':' + stopValueM + ':' + stopValue
+      })
+      
+      let intervalTimer
+      let intervalStop
+      let stopValue = 0
+      let stopValueM = 0
+      let stopValueH = 0
+      let stopBool = false
+      let timerH = 0
+      let timerM = 0
+      let timerS  = 0
+      let timerBool = false
+      startS.addEventListener('click', () => {
+        if (stopBool == false) {
+          intervalStop = setInterval(() => {
+            stopValue++
+            if (stopValue % 60 === 0) {
+              stopValue = 0
+              stopValueM++
+            }
+            if (stopValueM > 0 && stopValueM % 60 === 0) {
+              stopValueM = 0
+              stopValueH++
+            }
+            if (stopValueH) timeTxt.innerText = stopValueH + ':' + stopValueM + ':' + stopValue
+            else timeTxt.innerText = stopValueM + ':' + stopValue
+            stopBool = true
+        },1000)}
+      })
+      
+      stopS.addEventListener('click', () => {
+        clearInterval(intervalStop)
+        stopBool = false
+      })
+      
+      startT.addEventListener('click', () => {
+        if(timerBool === false) {
+          selectH.style.display = 'none'
+          selectM.style.display = 'none'
+          selectS.style.display = 'none'
+          timerTxt.style.display = 'inline-block'
+          timerBool = true
+          countH = selectH.value
+          countM = selectM.value
+          countS = selectS.value
+          timerH = parseInt(countH)
+          timerM = parseInt(countM)
+          timerS = parseInt(countS)
+          intervalTimer = setInterval(() => {
+          if(timerS == 0 && timerM > 0) {
+            timerS = 59
+            timerM--
+          }
+          if(timerS > 0) timerS-- 
+          if(timerH > 0 && timerM === 0) {
+            timerH--
+            timerM = 59
+          }
+          if(timerH > 0) timerTxt.innerText = timerH + ':' + timerM + ':' + timerS
+          else if(timerH == 0 && timerM > 0) timerTxt.innerText = timerM + ':' + timerS
+          else if(timerH == 0 && timerM == 0 && timerS > 0) timerTxt.innerText = timerS
+          else if (timerS == 0 && timerM == 0 && timerH == 0) {
+            timerTxt.innerText = 'Time is up'
+            sound.play()
+          }
+          },1000)
+        }
+      })
+      
+      stopT.addEventListener('click', () => {
+        timerH.toString()
+        timerM.toString()
+        timerS.toString()
+        selectH.value = timerH
+        selectM.value = timerM
+        selectS.value = timerS
+        clearInterval(intervalTimer)
+        timerBool = false
+        sound.pause()
+      })
+      
+      resetT.addEventListener('click', () => {
+        selectH.value = 0
+        selectM.value = 10
+        selectS.value = 0
+        selectH.style.display = 'inline-block'
+        selectM.style.display = 'inline-block'
+        selectS.style.display = 'inline-block'
+        timerTxt.style.display = 'none'
+        clearInterval(intervalTimer)
+        timerBool = false
+        sound.pause()
+      })
+      
+      resetS.addEventListener('click', () => {
+        stopValue = 0
+        stopValueM = 0
+        stopValueH = 0
+        timeTxt.innerText = stopValueM + ':' + stopValue
+      })
+    </script>
+  </body>
+</html>
